@@ -1,0 +1,95 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.numapage.com/player-ws"
+           targetNamespace="http://www.numapage.com/player-ws" elementFormDefault="qualified">
+
+    <xs:element name="getPlayerByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="playerId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getPlayerByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="playerInfo" type="tns:playerInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="playerInfo">
+        <xs:sequence>
+            <xs:element name="playerId" type="xs:long"/>
+            <xs:element name="ci" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="gender" type="xs:string"/>
+            <xs:element name="position" type="xs:string"/>            
+            <xs:element name="aditionalData" type="xs:string"/>
+            <xs:element name="countryId" type="xs:string"/>
+            <xs:element name="clubId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getAllPlayersRequest">
+        <xs:complexType/>
+    </xs:element>    
+    <xs:element name="getAllPlayersResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="playerInfo" type="tns:playerInfo" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>   
+    <xs:complexType name="serviceStatusPlayer">
+        <xs:sequence>
+            <xs:element name="statusCode" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>     
+    <xs:element name="addPlayerRequest">
+        <xs:complexType>
+            <xs:sequence>
+            <xs:element name="ci" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="gender" type="xs:string"/>
+            <xs:element name="position" type="xs:string"/>            
+            <xs:element name="aditionalData" type="xs:string"/>
+            <xs:element name="countryId" type="xs:string"/>
+            <xs:element name="clubId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addPlayerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatusPlayer" type="tns:serviceStatusPlayer"/>            
+                <xs:element name="playerInfo" type="tns:playerInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updatePlayerRequest">
+        <xs:complexType>
+            <xs:sequence>
+               <xs:element name="playerInfo" type="tns:playerInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updatePlayerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatusPlayer" type="tns:serviceStatusPlayer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deletePlayerRequest">
+        <xs:complexType>
+            <xs:sequence>
+               <xs:element name="playerId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deletePlayerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatusPlayer" type="tns:serviceStatusPlayer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>                   
+</xs:schema>
