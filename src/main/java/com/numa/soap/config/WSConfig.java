@@ -22,8 +22,9 @@ public class WSConfig extends WsConfigurerAdapter {
 		servlet.setTransformWsdlLocations(true);
 		return new ServletRegistrationBean(servlet, "/soapws/*");
 	}
+	
 	@Bean(name = "clubs")
-	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema clubsSchema) {
+	public DefaultWsdl11Definition clubsWsdl11Definition(XsdSchema clubsSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("ClubsPort");
 		wsdl11Definition.setLocationUri("/soapws");
@@ -34,5 +35,33 @@ public class WSConfig extends WsConfigurerAdapter {
 	@Bean
 	public XsdSchema clubsSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("xsds/clubs.xsd"));
+	}
+	
+	@Bean(name = "players")
+	public DefaultWsdl11Definition playersWsdl11Definition(XsdSchema playersSchema) {
+		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+		wsdl11Definition.setPortTypeName("PlayersPort");
+		wsdl11Definition.setLocationUri("/soapws");
+		wsdl11Definition.setTargetNamespace("http://www.numapage.com/player-ws");
+		wsdl11Definition.setSchema(playersSchema);
+		return wsdl11Definition;
+	}
+	@Bean
+	public XsdSchema playersSchema() {
+		return new SimpleXsdSchema(new ClassPathResource("xsds/players.xsd"));
+	}
+	
+	@Bean(name = "countries")
+	public DefaultWsdl11Definition countriesWsdl11Definition(XsdSchema countriesSchema) {
+		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+		wsdl11Definition.setPortTypeName("CountriesPort");
+		wsdl11Definition.setLocationUri("/soapws");
+		wsdl11Definition.setTargetNamespace("http://www.numapage.com/country-ws");
+		wsdl11Definition.setSchema(countriesSchema);
+		return wsdl11Definition;
+	}
+	@Bean
+	public XsdSchema countriesSchema() {
+		return new SimpleXsdSchema(new ClassPathResource("xsds/countries.xsd"));
 	}
 }
