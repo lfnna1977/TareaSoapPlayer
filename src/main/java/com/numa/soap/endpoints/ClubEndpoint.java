@@ -22,13 +22,13 @@ import com.numa.soap.gs_ws.GetClubByIdResponse;
 import com.numa.soap.gs_ws.ServiceStatus;
 import com.numa.soap.gs_ws.UpdateClubRequest;
 import com.numa.soap.gs_ws.UpdateClubResponse;
-import com.numa.soap.service.IClubService;
+import com.numa.soap.service.IntClubService;
 	
 @Endpoint
 public class ClubEndpoint {
 	private static final String NAMESPACE_URI = "http://www.numapage.com/club-ws";
 	@Autowired
-	private IClubService clubService;	
+	private IntClubService clubService;	
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getClubByIdRequest")
 	@ResponsePayload
