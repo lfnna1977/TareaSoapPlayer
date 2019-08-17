@@ -32,7 +32,27 @@ Los servicios se consumen con el programa SoapUI, se implementó los servicios p
 * getClubById
 * UpdateClub
 
-Para consumir se utiliza la siguiente URL: [http://uasb-api.rootcode.com.bo:8077/soapws/clubs.wsdl]
+Los servicios se consumen con el programa SoapUI, se implementó los servicios para la tabla **COUNTRY**, se cuenta los siguientes servicios:
+
+* addCountry
+* deleteCountry
+* getAllCountrys
+* getCountryById
+* UpdateCountry
+
+Los servicios se consumen con el programa SoapUI, se implementó los servicios para la tabla **PLAYER**, se cuenta los siguientes servicios:
+
+* addPlayer
+* deletePlayer
+* getAllPlayers
+* getPlayerById
+* UpdatePlayer
+
+Para consumir se utilizan las siguientes URLs:
+[http://uasb-api.rootcode.com.bo:8077/soapws/clubs.wsdl]
+[http://uasb-api.rootcode.com.bo:8077/soapws/countries.wsdl]
+[http://uasb-api.rootcode.com.bo:8077/soapws/players.wsdl]
+
 
 En SoapUI, ir a "File", "New Soap Proyect". 
 En la ventana que aparece, escribir la dirección proporcionada en: “Initial WSDL”. 
@@ -53,3 +73,22 @@ mvn clean package
 ## Fuentes.
 [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)  
 [https://www.concretepage.com/spring-boot/spring-boot-soap-web-service-example](https://spring.io/projects/spring-boot)
+
+Se ha añadido un cliente para consumir el presente SOAP, basado en PHP:
+
+Github:
+[https://github.com/lfnna1977/TareaClienteSoapPlayer.git]
+
+la direccion por donde se puede acceder es:
+http://uasb-api.rootcode.com.bo/lnavarro/soap-client/
+
+TIPS
+Normalmente en el servidor apache esta disponible los paquetes PHP SOAP generalmente como php-soap y php-nusoap, pero si no esta presente se puede instalar:
+
+En Ubuntu / Debian puedes instalar con:
+
+$ sudo apt-get install php-soap
+
+O en RHEL / Fedora puedes instalar con:
+
+$ sudo yum install php-soap
